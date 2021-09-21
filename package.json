@@ -1,0 +1,15 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "Flashcards API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shell",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "save": "^2.4.0"
+  }
+}

@@ -1,0 +1,210 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: rgb(20, 160, 202);
+}
+
+.page-title {
+  color: #ffffff;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: normal;
+  text-align: center;
+  font-size: 5em;
+  padding-top: 45px;  
+  
+}
+
+.game-info-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-info {
+  color: #BB2020;
+  font-size: 4em;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.game-container {
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  perspective: 500px;
+  perspective: 1000px;
+  position: relative;
+  height: 300px;
+  width: 500px;
+  max-width: 100%; 
+  cursor: pointer;
+}
+
+.card {
+  content: '\f021  Flip';
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+img {
+  width: 100%;
+}
+
+.card-face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  transition: transform 500ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+#victory-text {
+  flex-direction: column;
+    gap: 10px;
+}
+
+#game-over-text {
+  flex-direction: column;
+    gap: 10px;
+}
+.card.visible .card-back {
+  transform: rotateY(-180deg); 
+}
+
+.card.visible .card-front {
+  transform: rotateY(0); 
+}
+
+.card.matched .card-front .card-value {
+  animation: dance 1s linear infinite 500ms;
+}
+
+.card-back {
+  background-color: black;
+  border-color: #000000;
+  transform: rotateY(0); 
+}
+
+
+
+.mixandmatch {
+  align-self: flex-start;
+  transition: transform 100ms ease-in-out;
+  transform: translateY(-10px);
+}
+
+.card-back:hover .mixandmatch {
+  transform: translateY(0);
+}
+
+.card-value {
+  position: relative;
+  transition: transform 100ms ease-in-out;
+  transform: scale(.9);
+}
+
+.card-front:hover .card-value {
+  transform: scale(1);
+  content: '\f021  Flip';
+}
+
+.card-front {
+
+  background-color: #000000;
+  border-color: #333;
+  transform: rotateY(180deg);
+}
+
+.overlay-text {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  color:#BB2020;
+  font-family: 'Rubik', sans-serif;
+  transition: background-color 500ms, font-size 400ms;
+  cursor: pointer;
+  flex-direction: column;
+  font-style: italic;
+}
+
+.overlay-text:hover {
+  color: #ffffff;
+
+}
+
+
+.overlay-text-small {
+  font-size: .3em;
+  display: flex;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.overlay-text.visible {
+  display: flex;
+  animation: overlay-grow 500ms forwards;
+
+
+   
+}
+
+.visible {
+  flex-direction: row;
+  gap: 10px;
+  font-size: small;
+}
+
+@keyframes dance {
+  0%, 100% {
+    transform: rotate(0)
+  }
+  25% {
+    transform: rotate(-30deg)
+  }
+  75% {
+    transform: rotate(30deg)
+  }
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 10em;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-container {
+    grid-template-columns: repeat(2, auto)
+  }
+
+  .game-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
