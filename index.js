@@ -110,12 +110,12 @@ apiRequest = (userInput) => {
     const url = 'https://api.unsplash.com/search/photos?query='+userInput+'&per_page=30&client_id=F4iFO5Uo5S4_5XHKk7KpcHIG74pk5YzZ7EgR8EihYYU';
   
     fetch(url)
-    .then(response => {
-        return response.json();
+    .then(cards => {
+        return cards.json();
      })
      .then(data => {
          console.log("success: ", data);
-        loadImages(data);
+         getCardType(card);
      })
      .catch(error => console.log(error));   
   }
