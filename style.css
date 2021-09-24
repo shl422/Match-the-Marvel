@@ -161,10 +161,7 @@ img {
 
 .overlay-text.visible {
   display: flex;
-  animation: overlay-grow 500ms forwards;
-
-
-   
+  animation: overlay-grow 500ms forwards;  
 }
 
 .visible {

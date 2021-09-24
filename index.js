@@ -105,9 +105,9 @@ if (document.readyState == 'loading') {
 } else {
   ready();
 }
-apiRequest = (userInput) => {
+apiRequest = (Superhero) => {
   
-    const url = 'https://api.unsplash.com/search/photos?query='+userInput+'&per_page=30&client_id=F4iFO5Uo5S4_5XHKk7KpcHIG74pk5YzZ7EgR8EihYYU';
+    const url = 'https://api.unsplash.com/search/photos?query='+Superhero+'&per_page=30&client_id=F4iFO5Uo5S4_5XHKk7KpcHIG74pk5YzZ7EgR8EihYYU';
   
     fetch(url)
     .then(cards => {
