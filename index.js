@@ -105,20 +105,9 @@ if (document.readyState == 'loading') {
 } else {
   ready();
 }
-apiRequest = (Superhero) => {
+
   
-    const url = 'https://api.unsplash.com/search/photos?query='+Superhero+'&per_page=30&client_id=F4iFO5Uo5S4_5XHKk7KpcHIG74pk5YzZ7EgR8EihYYU';
-  
-    fetch(url)
-    .then(cards => {
-        return cards.json();
-     })
-     .then(data => {
-         console.log("success: ", data);
-         getCardType(card);
-     })
-     .catch(error => console.log(error));   
-  }
+
 
 function ready() {
   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
